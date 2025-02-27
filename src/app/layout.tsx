@@ -3,16 +3,16 @@ import { Banner, Head } from "nextra/components";
 import { getPageMap } from "nextra/page-map";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import Image from "next/image";
 import "nextra-theme-docs/style.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Nextra 4",
-  description: "Nextra 4 is here.",
+  title: "Deepr",
+  description: "Deepr Documentation",
 };
 
-const banner = <Banner storageKey="some-key">Nextra 4.0 is released 🎉</Banner>;
-const footer = <Footer>MIT {new Date().getFullYear()} © Nextra.</Footer>;
+const footer = <Footer></Footer>;
 
 export default async function RootLayout({
   children,
@@ -24,10 +24,9 @@ export default async function RootLayout({
       <Head />
       <body>
         <Layout
-          banner={banner}
           navbar={
             <Navbar
-              logo={<h1 className="text-2xl"> Deepr</h1>}
+              logo={<Image src="/logo.svg" alt="Deepr Logo" width={48} height={48} />}
               projectLink="https://github.com/5318008eth/deepr-documentation"
             />
           }
