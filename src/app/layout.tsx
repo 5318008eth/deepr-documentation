@@ -6,6 +6,7 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import "nextra-theme-docs/style.css";
 import "./globals.css";
+import EmptyFooter from "@/components/EmptyFooter";
 
 export const metadata: Metadata = {
   title: "Deepr",
@@ -31,8 +32,8 @@ export default async function RootLayout({
           pageMap={await getPageMap()}
           docsRepositoryBase="https://github.com/5318008eth/deepr-documentation/tree/main/docs"
           editLink="Edit this page on GitHub"
-          sidebar={{ defaultMenuCollapseLevel: 1, autoCollapse: true }}
-          footer={<Footer />}
+          sidebar={{ defaultMenuCollapseLevel: 1, autoCollapse: true}}
+          footer={<EmptyFooter />}
         >
           {children}
         </Layout>
