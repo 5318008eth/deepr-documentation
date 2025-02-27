@@ -27,12 +27,12 @@ export default async function RootLayout({
           banner={banner}
           navbar={
             <Navbar
-              logo={<h1 className="text-2xl"> Nextra</h1>}
-              projectLink="https://github.com/officialrajdeepsingh/nextra-4"
+              logo={<h1 className="text-2xl"> Deepr</h1>}
+              projectLink="https://github.com/5318008eth/deepr-documentation"
             />
           }
           pageMap={await getPageMap()}
-          docsRepositoryBase="https://github.com/officialrajdeepsingh/nextra-4/tree/main/docs"
+          docsRepositoryBase="https://github.com/5318008eth/deepr-documentation/tree/main/docs"
           editLink="Edit this page on GitHub"
           sidebar={{ defaultMenuCollapseLevel: 1, autoCollapse: true }}
           footer={footer}
