@@ -6,7 +6,6 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import "nextra-theme-docs/style.css";
 import "./globals.css";
-import EmptyFooter from "@/components/EmptyFooter";
 
 export const metadata: Metadata = {
   title: "Deepr",
