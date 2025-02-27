@@ -1,0 +1,204 @@
+---
+title: "Deepr - The Evolution of Fair Token Launches"
+description: "Revolutionizing token launches with progressive supply release, anti-bot protection, and enhanced liquidity scaling"
+---
+
+import { Callout } from 'nextra/components'
+import '@/styles/onepager.css'
+import Image from 'next/image'
+import ImageModal from '@/components/ImageModal'
+
+<div className="header">
+  <div className="logo-placeholder">
+    <Image src="/logo.svg" alt="Deepr Logo" width={200} height={200} priority />
+  </div>
+  # Deepr.fun
+  The Evolution of Fair Token Launches
+</div>
+
+## The Problem
+
+Current token launches are broken:
+
+- Entire supply can be bundled at launch by whales
+- Bots and MEV exploit every transaction  
+- Price crashes on small sells due to poor liquidity
+- High initial liquidity requirements price out most projects
+
+<Callout type="warning">
+### Real-world evidence from Pump.fun:
+
+- Total coins bonded: **87,170**
+- Only **4 coins** reached {'>'}\$100m market cap (0.005%): \$fartcoin, \$arc, \$ACT, \$pnut
+- Only **40 coins** reached {'>'}\$10m market cap (0.05%)
+- Only **250 coins** reached {'>'}\$1m market cap (0.3%)
+- **79,000 coins** (90.6%) ended with {'<'}\$100k market cap = complete rugs!
+</Callout>
+
+## The Solution
+
+Deepr.fun revolutionizes token launches with:
+
+<div className="feature-list">
+  <div className="feature-item">
+    ### Progressive Supply Release
+    Prevents whales from bundling the entire supply at launch
+  </div>
+  <div className="feature-item">
+    ### Advanced Anti-Bot Protections
+    Blocks harmful MEV exploitation and front-running
+  </div>
+  <div className="feature-item">
+    ### Enhanced Liquidity Scaling
+    Automatically increases as market cap grows
+  </div>
+  <div className="feature-item">
+    ### Low Barrier to Entry
+    With growing protection mechanisms as projects mature
+  </div>
+</div>
+
+## The Platform
+
+- Full-featured token deployer
+- Built-in swap interface routes to the best price (uniswap vs tranche)
+- Enhanced progressive liquidity system
+- Launching on Base for optimal accessibility
+
+<div className="screenshot-container">
+  <div className="screenshot-grid">
+    <div>
+      <ImageModal 
+        src="/Screenshot_swapUI_1.png" 
+        alt="Deepr.fun Swap Interface" 
+        width={800} 
+        height={450} 
+      />
+      <p className="screenshot-caption">Deepr.fun swap interface - Token Exchange</p>
+    </div>
+    <div>
+      <ImageModal 
+        src="/Screenshot_swapUI_2.png" 
+        alt="Deepr.fun Advanced Settings" 
+        width={800} 
+        height={450} 
+      />
+      <p className="screenshot-caption">Deepr.fun swap interface - Advanced Settings</p>
+    </div>
+  </div>
+</div>
+
+## The Token
+
+- TGE after testnet launch
+- Holders receive airdrops from all future Deepr.fun launches
+- A portion of all future launch fees will be used to buy back and burn the token
+- Fair launch with no pre-mine
+
+## Smart Liquidity Design
+
+### Best of Both Worlds
+
+<Callout>
+**Starts with lower liquidity allowing for:**
+
+- Lower launch costs
+- Faster price appreciation
+- More accessible launch requirements
+- Quick price discovery
+
+**As market cap grows:**
+
+- Liquidity automatically scales up
+- Price stability increases
+- Manipulation becomes harder
+- Slippage fees decrease
+
+**Result:** Early price action of a low-cap gem with the stability of a mature token
+</Callout>
+
+## Price Impact Protection
+(based on $2500 ETH and $144 SOL)
+
+When someone sells 3% of supply:
+
+| Market Cap | Pump.fun | Deepr.fun | Advantage |
+|------------|----------|-----------|-----------|
+| $100k FDV | 30.0% price drop | 27.5% price drop | <span className="advantage">1.1x less impact</span> |
+| $500k FDV | 51.6% price drop | 39.5% price drop | <span className="advantage">1.3x less impact</span> |
+| $2M FDV | 71.5% price drop | 49.8% price drop | <span className="advantage">1.4x less impact</span> |
+| $5M FDV | 82.3% price drop | 60.4% price drop | <span className="advantage">1.4x less impact</span> |
+
+## Protected Token Distribution
+
+### Initial Supply Protection
+- Only 22% of supply available in initial tranche sale is paired with 22% of supply as liquidity
+- Remaining 56% of supply is locked in 13 progressive tranches
+- Each tranche only unlocks when price reaches specific levels
+- Makes it impossible to bundle the entire supply at launch
+- Forces distribution across different price points
+
+### Purchase Limits By Tranche
+- Initial tranche: Limited to prevent single-buyer dominance
+- Middle tranches: 5-20% limits per wallet
+- Later tranches: Gradually increasing limits
+- Result: No single entity can control the supply
+
+## Advanced Anti-Sniping Protection
+
+### Transaction Protection
+- Maximum priority fee of 5 gwei blocks sandwich attacks and front-running
+- Legitimate buyers can still accumulate normally
+- No artificial caps on position size - just protection from manipulation tactics
+- Natural price movement remains possible while bots get blocked
+
+### Progressive Price Discovery
+- 14 separate tranches unlock at progressively higher prices
+- Each tranche can be accessed once its price level is reached
+- No artificial barriers to upward price movement
+- Creates natural buying pressure as new tranches become available
+
+## The Deepr.fun Advantage
+
+<div className="advantage-grid">
+  <div className="advantage-section">
+    <h3>How It Enables Fair Growth</h3>
+    <ol>
+      <li><strong>Supply Protection</strong>: Impossible to bundle all tokens at launch</li>
+      <li><strong>Equal Access</strong>: Every buyer gets the same opportunity at each price level</li>
+      <li><strong>No Bot Advantage</strong>: Bots can't front-run or manipulate gas prices</li>
+      <li><strong>Natural Momentum</strong>: Price can still move quickly when genuine demand exists</li>
+      <li><strong>Protected Discovery</strong>: Price finds its level through real market activity</li>
+    </ol>
+  </div>
+
+  <div className="advantage-section">
+    <h3>Protection Without Restriction</h3>
+    <p>Traditional launches force you to choose between:</p>
+    <ul>
+      <li>Having entire supply bundled by whales</li>
+      <li>Getting sniped by bots</li>
+      <li>Having artificial limits that kill momentum</li>
+    </ul>
+    
+    <p>Deepr.fun solves this by:</p>
+    <ul>
+      <li>Distributing supply across price levels</li>
+      <li>Blocking harmful bot activity</li>
+      <li>Allowing natural price discovery</li>
+      <li>Enabling legitimate accumulation</li>
+      <li>Supporting organic growth patterns</li>
+    </ul>
+  </div>
+</div>
+
+## The Result
+
+A token that can still experience significant price appreciation when genuine demand exists, but without:
+- Supply getting bundled at launch
+- Getting instantly sniped
+- Being manipulated by MEV bots
+- Suffering from sandwich attacks
+- Having artificial growth restrictions
+
+This creates an environment where price can move naturally while maintaining protection from the harmful elements that typically destroy token launches. The combination of progressive supply release, anti-sniping measures, and price impact protection creates the fairest and most sustainable launch mechanism available in the market today.

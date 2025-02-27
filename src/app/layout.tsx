@@ -13,6 +13,8 @@ export const metadata: Metadata = {
   description: "Deepr Documentation",
 };
 
+const footer = <Footer>MIT 2025 © Deepr.</Footer>;
+
 export default async function RootLayout({
   children,
 }: {
@@ -33,7 +35,7 @@ export default async function RootLayout({
           docsRepositoryBase="https://github.com/5318008eth/deepr-documentation/tree/main/docs"
           editLink="Edit this page on GitHub"
           sidebar={{ defaultMenuCollapseLevel: 1, autoCollapse: true}}
-          footer={<EmptyFooter />}
+          footer={footer}
         >
           {children}
         </Layout>

@@ -1,22 +1,21 @@
 import { Metadata } from "next";
+import { importPage } from "nextra/pages";
+import { useMDXComponents } from "@/mdx-components";
+
+const Wrapper = useMDXComponents().wrapper;
 
 export const metadata: Metadata = {
-  title: "Nextra 4",
-  description: "Nextra 4 is here.",
+  title: "Deepr",
+  description: "Deepr Documentation"
 };
-export default function Home() {
+
+export default async function Page() {
+  const result = await importPage(["onepager"]);
+  const { default: MDXContent, toc, metadata } = result;
+  
   return (
-    <div className="container flex items-center justify-center">
-      <h1
-        style={{
-          textAlign: "center",
-          fontSize: 64,
-          margin: "25vh 0",
-          fontWeight: "bold",
-        }}
-      >
-        Home page
-      </h1>
-    </div>
+    <Wrapper toc={toc} metadata={metadata}>
+      <MDXContent />
+    </Wrapper>
   );
 }
