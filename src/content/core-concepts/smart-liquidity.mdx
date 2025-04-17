@@ -1,0 +1,49 @@
+---
+title: Smart Liquidity Scaling
+description: Understand how Deepr automatically scales liquidity to enhance price stability and reduce impact.
+---
+
+import { Callout } from 'nextra/components'
+
+# Smart Liquidity Scaling
+
+Traditional token launchpads often suffer from dangerously low initial liquidity relative to the token's potential market cap. This makes the price extremely sensitive to sells, leading to volatility and frequent collapses.
+
+Deepr introduces **Smart Liquidity Scaling**, a mechanism designed to grow the liquidity pool automatically as the token gains traction and market capitalization.
+
+## The Problem with Fixed, Low Liquidity
+
+Imagine a token launching with $5k in liquidity but quickly reaching a $1M market cap. The liquidity depth is tiny compared to the valuation.
+
+- **High Price Impact:** Small sell orders cause disproportionately large price drops.
+- **Increased Volatility:** The token price becomes unstable and easily manipulated.
+- **Reduced Trader Confidence:** Constant high slippage and risk of crashes deter serious participants.
+- **Project Failure:** Many tokens fail simply because their liquidity couldn't keep pace with initial interest, leading to inevitable price collapses.
+
+## How Deepr Scales Liquidity Automatically
+
+Deepr's liquidity scaling is intrinsically linked to its [Progressive Supply Release](./progressive-supply) system:
+
+1.  **Initial Liquidity:** The first liquidity pool is created only *after* Tranche 0 is fully sold, using the raised ETH and an equivalent value of tokens (22% of supply).
+2.  **Tranche Purchases Add Liquidity:** When users purchase tokens from subsequent Tranches (1-13), the ETH they pay (minus fees) is automatically paired with the purchased tokens (minus fees) and added directly to the DEX liquidity pool.
+
+<Callout>
+  **Example:** A user buys 1 ETH worth of tokens from Tranche 5.
+  - Fees are deducted from the 1 ETH and the corresponding tokens.
+  - The remaining ETH and tokens are immediately added to the Uniswap LP pool.
+  - This instantly increases the pool's depth.
+</Callout>
+
+This means that every purchase from an active tranche (1-13) directly contributes to deepening the token's liquidity.
+
+## Benefits of Smart Liquidity Scaling
+
+- **Enhanced Price Stability:** As market cap grows and tranches are bought, the increasing liquidity dampens volatility and reduces the price impact of individual trades.
+- **Reduced Slippage:** Deeper liquidity means lower slippage costs for traders, making the token more attractive to trade.
+- **Increased Manipulation Resistance:** It becomes progressively harder and more expensive to manipulate the price as the liquidity pool grows.
+- **Sustainable Growth:** The system fosters a healthier market environment where price discovery is less prone to catastrophic crashes due to shallow liquidity.
+- **Lower Barrier for Launch:** Projects don't need a huge upfront liquidity injection. The liquidity builds organically as the token proves its value and unlocks new tranches.
+
+See the [Deepr vs. Alternatives](../../comparison#price-impact-comparison) page for a direct comparison of how Deepr's scaled liquidity mitigates price impact compared to models like Pump.fun.
+
+By tying liquidity growth directly to successful progression through the tranches, Deepr creates a more robust and sustainable market environment for new tokens. 

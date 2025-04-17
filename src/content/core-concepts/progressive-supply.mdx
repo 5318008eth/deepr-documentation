@@ -1,0 +1,54 @@
+---
+title: Progressive Supply Release
+description: Learn how Deepr's tranche system prevents supply bundling and promotes fair distribution.
+---
+
+import { Callout } from 'nextra/components'
+
+# Progressive Supply Release
+
+One of the biggest problems with traditional token launches is the ability for whales or bots to acquire a massive portion, or even all, of the token supply right at the start. This "supply bundling" leads to unfair distribution, centralization, and often sets the stage for a quick pump-and-dump.
+
+Deepr tackles this head-on with its **Progressive Supply Release** mechanism, built around a system of tranches.
+
+## How it Works: The Tranche System
+
+Instead of making the entire token supply available at once, Deepr divides the supply release into **14 distinct stages, or tranches**. Each tranche has a specific amount of tokens allocated to it and a target price point.
+
+- **Tranche 0:** The initial launch tranche.
+- **Tranches 1-13:** Subsequent tranches that unlock progressively.
+
+This tiered approach ensures that tokens are introduced into the market gradually and at different valuation levels.
+
+## Initial Distribution (Tranche 0 & Liquidity)
+
+The launch starts with Tranche 0:
+
+1.  **22% of the total token supply** is made available for purchase in Tranche 0 at the `initialPricePerToken`.
+2.  Once Tranche 0 is fully sold, the ETH raised is automatically paired with **another 22% of the total token supply** to create the initial liquidity pool (LP) on a decentralized exchange (like Uniswap V2).
+
+<Callout type="info">
+  **Initial State:** At the moment liquidity is added, only 44% of the total supply is circulating or available in the LP. The remaining 56% is still held securely by the Deepr contract.
+</Callout>
+
+This initial structure immediately prevents anyone from buying the *entire* supply, as a significant portion is reserved for liquidity from the outset.
+
+## Unlocking Subsequent Tranches (1-13)
+
+The next 13 tranches (Tranches 1 through 13) contain a combined **28% of the total token supply**. These tranches do not unlock based on time, but rather on **market price milestones**.
+
+- Each tranche `i` (where `i` is 1 to 13) has an associated `priceMultiples[i]` value defined in the contract.
+- A tranche becomes available for purchase **only when the token's market price** (as determined by the DEX pool) reaches or exceeds `initialPricePerToken * priceMultiples[i]`.
+- Buyers can then purchase tokens from the available tranche at the *current market price*, provided it meets the tranche's minimum price requirement.
+- When tokens are purchased from these tranches, the contract automatically handles [fee distribution](../deepr-token#value-accrual-fee-distribution-explained) and adds the remaining ETH and tokens to the liquidity pool, further bolstering it (see [Smart Liquidity Scaling](./smart-liquidity)).
+
+## Remaining Supply
+
+After accounting for the initial 22% sold, the 22% for initial LP, and the 28% in tranches 1-13, there is **28% of the total supply** that remains held by the contract, unallocated to any specific tranche. The use of this remaining supply could be determined by future governance or specific project parameters.
+
+## Benefits of Progressive Supply
+
+- **Prevents Whale Bundling:** It's impossible for any single entity to buy the entire supply at launch.
+- **Fairer Distribution:** Forces token distribution across various price points as the project matures.
+- **Gradual Market Introduction:** Avoids the shock of the entire supply hitting the market simultaneously.
+- **Builds Confidence:** A structured release can signal a long-term vision compared to instant-liquidity models often associated with rugs. 

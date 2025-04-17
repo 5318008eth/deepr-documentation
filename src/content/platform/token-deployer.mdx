@@ -1,0 +1,46 @@
+---
+title: Token Deployer
+description: Learn how to launch your own token using the Deepr platform and its fair launch template contract.
+---
+
+import { Callout } from 'nextra/components'
+
+# Launching Your Token on Deepr
+
+Deepr provides a streamlined platform for launching new tokens using its innovative `DeeprTemplate` smart contract. This contract incorporates all the core concepts of [Progressive Supply Release](../core-concepts/progressive-supply), [Smart Liquidity Scaling](../core-concepts/smart-liquidity), and [Anti-Manipulation Mechanisms](../core-concepts/anti-manipulation) to give your project the best chance at a fair and sustainable launch.
+
+## Overview of the Deployer
+
+The Deepr platform offers a user interface that simplifies the process of deploying your own instance of the `DeeprTemplate` contract. By providing a few key parameters, you can create a token with all of Deepr's protective features built-in.
+
+## Key Launch Parameters
+
+When deploying your token via the Deepr interface, you will need to define the following parameters, which correspond to the constructor arguments of the `DeeprTemplate` smart contract:
+
+1.  **Token Name (`name_`):** The full name of your token (e.g., "My Awesome Token").
+2.  **Token Symbol (`symbol_`):** The ticker symbol for your token (e.g., "MAT").
+3.  **Total Supply (`totalSupply_`):** The total number of tokens that will ever exist. This value is used to calculate the size of each of the 14 tranches based on predefined percentages.
+4.  **Initial ETH Raise Target (`ethRaiseinWei_`):** The amount of ETH you aim to raise during the sale of Tranche 0 (the initial 22% of supply). This value, along with the Tranche 0 supply size, determines the `initialPricePerToken`.
+
+<Callout type="info">
+  **Note:** The Uniswap V2 Router address (`uniswapV2Router_`) is typically configured by the Deepr platform based on the deployment network (e.g., Base) and doesn't usually require user input.
+</Callout>
+
+## The Launch Process (Simplified)
+
+1.  **Input Parameters:** You provide the Name, Symbol, Total Supply, and Initial ETH Raise Target via the Deepr deployment UI.
+2.  **Deploy Contract:** The platform deploys a new instance of the `DeeprTemplate` contract with your parameters. The deployer wallet (your wallet) is recorded in the contract.
+3.  **Tranche 0 Sale:** Your token launch begins with the sale of Tranche 0 tokens at the calculated initial price.
+4.  **Initial Liquidity Deployment:** Once Tranche 0 sells out, the contract automatically uses the collected ETH and the designated 22% of the token supply to seed the initial Uniswap liquidity pool.
+5.  **Progressive Launch:** Subsequent tranches (1-13) become available for purchase as the market price reaches the required milestones, automatically adding liquidity with each purchase.
+
+## Post-Launch
+
+Once launched, your token operates according to the `DeeprTemplate` rules:
+
+-   Supply is released progressively.
+-   Liquidity scales automatically.
+-   Anti-manipulation features are active.
+-   Fees are distributed automatically (75% of the ETH fee portion goes to your deployer wallet, 25% ETH to Deepr Vault, 5% effective token fee to Deepr Airdrop).
+
+Your role as the deployer primarily involves promoting your token, as the core mechanics are handled autonomously by the smart contract. 

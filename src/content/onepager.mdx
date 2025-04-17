@@ -91,9 +91,12 @@ Deepr.fun revolutionizes token launches with:
 ## The Token
 
 - TGE after testnet launch
-- Holders receive airdrops from all future Deepr.fun launches
-- A portion of all future launch fees will be used to buy back and burn the token
-- Fair launch with no pre-mine
+- **Fee Structure:** When liquidity is added (initial deployment & tranche buys 1-13), a 10% fee is applied to both the ETH and Tokens being paired:
+  - **ETH Fee (10%):** 75% is sent to the project deployer, 25% to the Deepr Vault.
+  - **Token Fee (10% of LP tokens = 5% of total tranche tokens):** 100% is sent to the Deepr Airdrop address.
+- Holders of the native Deepr token receive rewards sourced from the Deepr Airdrop address (accruing value from all launches on the platform).
+- The Deepr Vault may use collected ETH for ecosystem initiatives, including potential buy-backs/burns of the native Deepr token.
+- Deployed with no team allocation for *this* token; initial supply is held by the contract for the launch mechanism.
 
 ## Smart Liquidity Design
 
@@ -132,31 +135,26 @@ When someone sells 3% of supply:
 ## Protected Token Distribution
 
 ### Initial Supply Protection
-- Only 22% of supply available in initial tranche sale is paired with 22% of supply as liquidity
-- Remaining 56% of supply is locked in 13 progressive tranches
-- Each tranche only unlocks when price reaches specific levels
-- Makes it impossible to bundle the entire supply at launch
-- Forces distribution across different price points
+- Only 22% of supply is sold in the initial tranche, paired with another 22% of supply as initial liquidity.
+- Remaining 56% of supply is controlled by the contract: 28% is locked in 13 progressive tranches, and 28% remains held by the contract for future use or governance.
+- Each tranche only unlocks when the market price reaches specific levels defined in the contract.
+- Makes it impossible for whales to bundle the entire supply at launch.
+- Forces distribution across different price points as the token matures.
 
 ### Purchase Limits By Tranche
-- Initial tranche: Limited to prevent single-buyer dominance
-- Middle tranches: 5-20% limits per wallet
-- Later tranches: Gradually increasing limits
-- Result: No single entity can control the supply
+- **Initial Tranches (0-2):** Max purchase limited to 5% of the tranche supply per wallet.
+- **Middle Tranches (3-5):** Limit increases to 10% per wallet.
+- **Upper-Middle Tranches (6-8):** Limit increases to 20% per wallet.
+- **Later Tranches (9-13):** Limits removed (relative to tranche size).
+- Result: Prevents single-entity dominance while allowing larger buys as the market matures.
 
 ## Advanced Anti-Sniping Protection
 
 ### Transaction Protection
-- Maximum priority fee of 5 gwei blocks sandwich attacks and front-running
-- Legitimate buyers can still accumulate normally
-- No artificial caps on position size - just protection from manipulation tactics
-- Natural price movement remains possible while bots get blocked
-
-### Progressive Price Discovery
-- 14 separate tranches unlock at progressively higher prices
-- Each tranche can be accessed once its price level is reached
-- No artificial barriers to upward price movement
-- Creates natural buying pressure as new tranches become available
+- **Priority Fee Cap:** A maximum priority fee (currently 5 gwei) applies to tranche buys *and* DEX swaps, blocking common sandwich attacks and front-running bots.
+- **Purchase Limits:** Per-tranche wallet limits (see above) further prevent large initial snipes.
+- Legitimate buyers can still accumulate normally within limits.
+- Natural price movement remains possible while manipulative bots are significantly hindered.
 
 ## The Deepr.fun Advantage
 
@@ -177,14 +175,15 @@ When someone sells 3% of supply:
     <p>Traditional launches force you to choose between:</p>
     <ul>
       <li>Having entire supply bundled by whales</li>
-      <li>Getting sniped by bots</li>
-      <li>Having artificial limits that kill momentum</li>
+      <li>Getting sniped by MEV bots</li>
+      <li>Having artificial global limits that kill momentum</li>
     </ul>
     
     <p>Deepr.fun solves this by:</p>
     <ul>
-      <li>Distributing supply across price levels</li>
-      <li>Blocking harmful bot activity</li>
+      <li>Distributing supply across price levels (Tranches)</li>
+      <li>Blocking harmful bot activity (Priority Fee Cap)</li>
+      <li>Implementing wallet limits per tranche (fair access)</li>
       <li>Allowing natural price discovery</li>
       <li>Enabling legitimate accumulation</li>
       <li>Supporting organic growth patterns</li>
@@ -194,11 +193,11 @@ When someone sells 3% of supply:
 
 ## The Result
 
-A token that can still experience significant price appreciation when genuine demand exists, but without:
-- Supply getting bundled at launch
-- Getting instantly sniped
-- Being manipulated by MEV bots
-- Suffering from sandwich attacks
-- Having artificial growth restrictions
+A token launch mechanism designed for fair participation and sustainable growth:
+- Initial supply cannot be bundled at launch (Tranche 0 + LP).
+- MEV bots are deterred (Priority Fee Cap on buys & swaps).
+- Early snipes are limited (Tranche purchase caps).
+- Price discovers its level through genuine demand across tranches.
+- Liquidity scales naturally with market cap growth.
 
-This creates an environment where price can move naturally while maintaining protection from the harmful elements that typically destroy token launches. The combination of progressive supply release, anti-sniping measures, and price impact protection creates the fairest and most sustainable launch mechanism available in the market today.
+This creates an environment where price can move naturally while maintaining protection from the harmful elements that typically destroy token launches. The combination of progressive supply release, anti-sniping measures (fee caps + purchase limits), and scaled liquidity protection creates the fairest and most sustainable launch mechanism available.

@@ -1,12 +1,48 @@
-# Deepr Documentation
+---
+title: Introduction to Deepr
+description: Learn about the problems Deepr solves and its core features for fair token launches.
+---
 
-Welcome to the Deepr documentation portal. In-depth documentation and guides will be coming soon.
+import { Callout } from 'nextra/components'
+import Image from 'next/image'
 
-For now, you can check out our [one-pager](/onepager) to learn about Deepr's innovative token launch platform.
+<div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+  <Image src="/logo.svg" alt="Deepr Logo" width={150} height={150} priority />
+  <h1>Welcome to Deepr Documentation</h1>
+  <p>The Evolution of Fair Token Launches</p>
+</div>
 
-## Coming Soon
+## The Problem with Token Launches Today
 
-- Detailed technical documentation
-- Integration guides
-- API references
-- Best practices and examples
+Current token launch mechanisms on platforms like Pump.fun are fundamentally flawed, leading to predictable failures and unfair outcomes for most participants:
+
+- **🐋 Whale Manipulation:** The entire token supply can often be acquired ("bundled") by a few large buyers at launch, centralizing ownership and hindering fair distribution.
+- **🤖 Bot Exploitation:** Sophisticated MEV (Maximal Extractable Value) bots constantly scan for opportunities, front-running legitimate transactions and performing sandwich attacks, effectively stealing value from regular users.
+- **📉 Poor Liquidity & Price Crashes:** Many launchpads start with minimal liquidity relative to the total supply. This means even small sell orders can cause drastic price drops, quickly leading to project failure.
+- **💰 High Barriers to Entry:** Setting up substantial initial liquidity pools can be prohibitively expensive, preventing many legitimate projects from launching fairly.
+
+<Callout type="warning">
+  **Pump.fun Case Study:** Data shows the stark reality. Out of ~87,000 coins launched, a staggering 90%+ ended as rugs with less than $100k market cap. Only 0.005% reached a $100m market cap. This highlights the systemic issues Deepr aims to solve.
+</Callout>
+
+## Introducing Deepr: The Solution
+
+Deepr.fun revolutionizes token launches by directly addressing these core problems through innovative mechanics built into its smart contracts and platform.
+
+Our goal is to create a launch environment that is:
+
+- **Fair:** Preventing whales and bots from dominating the launch.
+- **Stable:** Scaling liquidity intelligently to reduce volatility.
+- **Accessible:** Lowering the barriers for legitimate projects.
+- **Transparent:** Providing clear mechanisms and data.
+
+## Key Features Overview
+
+Deepr achieves this through a combination of unique features:
+
+1.  **[Progressive Supply Release](./core-concepts/progressive-supply):** Tokens are released in stages (tranches) based on price milestones, preventing initial supply bundling.
+2.  **[Smart Liquidity Scaling](./core-concepts/smart-liquidity):** Liquidity is automatically added as the market cap grows, enhancing price stability.
+3.  **[Advanced Anti-Manipulation](./core-concepts/anti-manipulation):** Built-in protections like priority fee caps and purchase limits deter bots and snipers.
+4.  **[Accessible Platform](./platform/token-deployer):** A full-featured token deployer and swap interface makes launching and trading easy.
+
+Dive into the "Core Concepts" and "Platform Features" sections to learn more about how each mechanism works in detail.

@@ -1,0 +1,57 @@
+---
+title: Anti-Manipulation Mechanisms
+description: Discover how Deepr protects launches from bots, snipers, and MEV using priority fee caps and purchase limits.
+---
+
+# Anti-Manipulation Mechanisms
+
+Token launches are prime targets for manipulative actors using bots for front-running, sandwich attacks, and sniping the initial supply. Deepr incorporates several layers of protection directly into its smart contracts to create a fairer trading environment.
+
+## Protecting Against Bots & Sniping
+
+Deepr combines two primary mechanisms to deter common manipulation tactics:
+
+1.  **Priority Fee Cap:** Limits the effectiveness of MEV bots that rely on high gas fees.
+2.  **Purchase Limits Per Tranche:** Prevents single wallets from acquiring excessive amounts of tokens, especially in early stages.
+
+These work in conjunction with the [Progressive Supply Release](./progressive-supply) to provide robust protection.
+
+## Priority Fee Cap Explained
+
+MEV bots often gain an advantage by paying extremely high priority gas fees to get their transactions ordered favourably within a block (e.g., front-running a large buy or sandwiching a swap).
+
+Deepr implements a `maxPriorityFee` check (currently set at **5 gwei**) within its contract functions:
+
+- **Tranche Purchases:** The `buyInitialTranche` and `buyTranche` functions revert if the transaction's priority fee (`tx.gasprice - block.basefee`) exceeds this limit.
+- **DEX Swaps:** The contract overrides the standard ERC20 `_update` function (which is called during transfers, including those to/from the DEX pair). This override *also* enforces the `maxPriorityFee` check whenever tokens are transferred to or from the associated Uniswap V2 pair address.
+
+**Impact:**
+
+- **Deters Front-running/Sandwiching:** Bots cannot simply outbid regular users with exorbitant gas fees to execute these attacks.
+- **Levels the Playing Field:** Legitimate users paying normal priority fees are not disadvantaged.
+- **Doesn't Block Normal Trading:** The cap is high enough not to interfere with standard transactions during normal network conditions but low enough to price out common MEV strategies.
+
+## Purchase Limits Per Tranche
+
+To prevent individual wallets (potentially controlled by whales or sophisticated bots) from sniping large portions of the supply as tranches become available, Deepr enforces per-wallet purchase limits specific to each tranche:
+
+- **Tranches 0-2:** Max purchase per wallet is limited to **5%** of that specific tranche's supply.
+- **Tranches 3-5:** Limit increases to **10%** per wallet.
+- **Tranches 6-8:** Limit increases to **20%** per wallet.
+- **Tranches 9-13:** Purchase limits are removed (allowing wallets to buy the entire remaining amount of these smaller, later tranches).
+
+**Impact:**
+
+- **Prevents Early Snipes:** Ensures a wider distribution during the critical initial phases.
+- **Gradual Relaxation:** Allows for larger accumulation as the token matures and market cap grows, aligning with natural market dynamics.
+- **Complements Supply Release:** Works hand-in-hand with the tranche system to force distribution over time and price levels.
+
+## Balancing Protection and Price Discovery
+
+Deepr aims to protect launches without unduly restricting legitimate trading or price discovery.
+
+- The priority fee cap targets manipulative *gas bidding*, not the size or frequency of trades themselves.
+- Purchase limits are *per tranche* and gradually relax, allowing organic accumulation over time.
+- Natural price momentum driven by genuine demand is still possible and encouraged.
+
+By implementing these targeted protections, Deepr fosters an environment where price can move based on real market activity, significantly reducing the impact of common exploits that plague traditional launch platforms. 

@@ -1,0 +1,58 @@
+---
+title: Deepr vs. Alternatives
+description: Compare Deepr's fair launch mechanics against the limitations of traditional platforms.
+---
+
+import { Callout } from 'nextra/components'
+import '@/styles/onepager.css' // Assuming this contains the .advantage class styling
+
+# Deepr vs. Alternatives
+
+While numerous token launch platforms exist, many suffer from fundamental flaws that lead to poor outcomes for projects and participants. Deepr was designed specifically to address these shortcomings.
+
+## Limitations of Current Launchpads (Pump.fun Case Study)
+
+Platforms like Pump.fun, despite their popularity, often exemplify the common pitfalls:
+
+-   **Rampant Rug Pulls:** The ease of launch combined with flawed mechanics leads to a high percentage of projects quickly collapsing.
+-   **Extreme Volatility:** Shallow initial liquidity makes prices incredibly sensitive to small trades.
+-   **Bot Dominance:** Lack of robust anti-MEV and anti-snipe protection allows bots to exploit launches.
+-   **Whale Bundling:** Often, the entire supply can be bought up instantly, preventing fair distribution.
+
+<Callout type="warning">
+  **Real-world evidence from Pump.fun:**
+  - Total coins bonded: **87,170**
+  - Only **4 coins** reached >$100m market cap (0.005%): $fartcoin, $arc, $ACT, $pnut
+  - Only **40 coins** reached >$10m market cap (0.05%)
+  - Only **250 coins** reached >$1m market cap (0.3%)
+  - **79,000 coins** (90.6%) ended with <$100k market cap = likely complete rugs!
+</Callout>
+
+These statistics highlight the systemic failure of models that don't adequately protect against manipulation and ensure sustainable liquidity.
+
+## Price Impact Comparison
+
+One of the most significant advantages of Deepr's [Smart Liquidity Scaling](../core-concepts/smart-liquidity) is its ability to mitigate the severe price drops seen on other platforms when tokens are sold. The following table illustrates the estimated difference in price impact when 3% of the total supply is sold at various market caps:
+
+**(Based on $2500 ETH and $144 SOL estimates used in original onepager)**
+
+| Market Cap (FDV) | Pump.fun Price Drop | Deepr.fun Price Drop | Advantage                 |
+| :--------------- | :------------------ | :------------------- | :------------------------ |
+| $100k            | 30.0%               | 27.5%                | <span className="advantage">1.1x less impact</span> |
+| $500k            | 51.6%               | 39.5%                | <span className="advantage">1.3x less impact</span> |
+| $2M              | 71.5%               | 49.8%                | <span className="advantage">1.4x less impact</span> |
+| $5M              | 82.3%               | 60.4%                | <span className="advantage">1.4x less impact</span> |
+
+As the market cap grows, Deepr's automatically scaling liquidity provides significantly better price stability compared to models with fixed, shallow initial liquidity.
+
+## The Deepr Advantage: Summary
+
+Deepr combines several key innovations to create a demonstrably fairer and more sustainable launch environment:
+
+1.  **No Initial Supply Bundling:** [Progressive Supply Release](../core-concepts/progressive-supply) makes it impossible to acquire the entire supply at launch.
+2.  **Bot & Snipe Resistance:** The [Priority Fee Cap and Purchase Limits](../core-concepts/anti-manipulation) deter MEV bots and prevent large initial snipes.
+3.  **Reduced Volatility:** [Smart Liquidity Scaling](../core-concepts/smart-liquidity) automatically deepens the pool as the token grows, dampening price impact.
+4.  **Fairer Distribution:** Supply is released across different price points and initial purchases are capped, promoting wider ownership.
+5.  **Ecosystem Value:** Fees generated benefit the project deployer and accrue value to the native [$DEEPR Token](../deepr-token) holders and the Deepr Vault.
+
+By addressing the core issues of manipulation, distribution, and liquidity head-on, Deepr offers a superior alternative for launching tokens with a focus on fairness and long-term viability. 

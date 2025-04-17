@@ -1,0 +1,75 @@
+---
+title: Swap Interface
+description: Learn how to trade tokens launched on Deepr using the integrated swap interface.
+---
+
+import ImageModal from '@/components/ImageModal'
+import { Callout } from 'nextra/components'
+
+# Trading Tokens on Deepr
+
+Deepr provides an integrated swap interface designed to facilitate trading of tokens launched on the platform. It aims to offer users the best execution by considering both the standard Decentralized Exchange (DEX) pool and direct purchases from available [Tranches](../core-concepts/progressive-supply).
+
+## The Swap User Interface
+
+The Deepr swap UI provides a familiar experience for users accustomed to DEX platforms, allowing them to easily exchange tokens.
+
+*(Screenshots of the Swap UI would be placed here, similar to the onepager)*
+
+```jsx filename="Example Image Integration"
+<div className="screenshot-container">
+  <div className="screenshot-grid">
+    <div>
+      <ImageModal 
+        src="/Screenshot_swapUI_1.png" 
+        alt="Deepr.fun Swap Interface - Token Exchange" 
+        width={800} 
+        height={450} 
+      />
+      <p className="screenshot-caption">Deepr.fun swap interface - Token Exchange</p>
+    </div>
+    <div>
+      <ImageModal 
+        src="/Screenshot_swapUI_2.png" 
+        alt="Deepr.fun Advanced Settings" 
+        width={800} 
+        height={450} 
+      />
+      <p className="screenshot-caption">Deepr.fun swap interface - Advanced Settings</p>
+    </div>
+  </div>
+</div>
+```
+
+Key features include:
+
+-   Token selection dropdowns (Input and Output).
+-   Amount input fields.
+-   Display of estimated price, slippage, and price impact.
+-   Advanced settings (potentially for slippage tolerance, etc.).
+-   A clear "Swap" or "Buy" button.
+
+## How Trading Works
+
+Deepr's interface facilitates two main types of actions:
+
+1.  **Standard DEX Swaps:** For regular buying and selling, the interface interacts with the underlying Uniswap V2 liquidity pool associated with the token. It calculates routes and executes swaps via the Uniswap router, similar to other DEX frontends.
+
+2.  **Direct Tranche Purchases:** When a user wants to buy tokens and a later tranche (1-13) is available (i.e., the market price meets the tranche's minimum price requirement), the Deepr interface can facilitate a direct purchase from that tranche using the `buyTranche` function.
+
+<Callout type="info">
+  **Smart Routing (Conceptual):** Ideally, the Deepr frontend intelligently determines the best way to fill a user's buy order – either through the DEX pool or by purchasing directly from an available tranche if it offers a better price or is necessary to access that supply.
+</Callout>
+
+## Anti-Manipulation Protection During Swaps
+
+Remember that the [Priority Fee Cap](../core-concepts/anti-manipulation#priority-fee-cap-explained) implemented in the `DeeprTemplate` contract applies not only to tranche purchases but also to **standard DEX swaps**. Any transaction sending tokens to or receiving tokens from the Uniswap pair address is subject to the `maxPriorityFee` check. This helps protect users from MEV bots attempting front-running or sandwich attacks directly on the DEX pool.
+
+## Understanding Price Impact & Slippage
+
+As with any DEX, users should be aware of:
+
+-   **Price Impact:** The effect their trade will have on the token's price in the liquidity pool. Thanks to [Smart Liquidity Scaling](../core-concepts/smart-liquidity), this impact should decrease as the token matures and liquidity deepens.
+-   **Slippage Tolerance:** The maximum acceptable percentage difference between the expected price and the execution price. This can usually be adjusted in the advanced settings.
+
+The Deepr interface aims to provide clear estimates for these factors before a user confirms a transaction. 
